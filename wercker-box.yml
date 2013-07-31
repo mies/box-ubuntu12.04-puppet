@@ -1,5 +1,5 @@
 name: puppet
-version: 0.0.5
+version: 0.0.6
 description: Base box to use for running puppet manifests
 type : main
 platform : ubuntu@12.04
@@ -11,7 +11,8 @@ script : |
   sudo apt-get update
   sudo apt-get install -yq wget curl
   export PUPPETLABS_RELEASE_DEB=puppetlabs-release-precise.deb
-  cd
   wget http://apt.puppetlabs.com/$PUPPETLABS_RELEASE_DEB
   sudo dpkg -i puppetlabs-release-precise.deb
+  sudo apt-get update
+  sudo apt-get install -y puppet
   rm $PUPPETLABS_RELEASE_DEB
